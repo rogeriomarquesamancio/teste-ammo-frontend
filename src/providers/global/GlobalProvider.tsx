@@ -8,11 +8,11 @@ function GlobalProvider(props: IGlobalProviderContextProps) {
 
     const { children } = props;
 
-    const [exemple, setExemple] = useState<any>();
+    const [search, setSearch] = useState<string>();
 
     const sharedValue = {
-        exemple,
-        setExemple
+        search,
+        setSearch
     };
 
     return (

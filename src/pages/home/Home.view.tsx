@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 import { Container } from './Home.style';
-import { Col, Row } from 'antd';
+import { Col, Divider, Row } from 'antd';
 import TitleSearch from '../../components/titleSearch/TitleSearch';
-function HomeView() {
+import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
+import ProductCard from '../../components/productCard/ProductCard';
 
-    const [modalStatus, setModalStatus] = useState(false);
+function HomeView(props: any) {
+    const { listProduct } = props
 
     return (
         <Container>
             <Row>
                 <TitleSearch />
             </Row>
-            <span style={{ backgroundColor: "red", height: "30px" }}>
-                MAIN
-            </span>
-        </Container>
+            <Row>
+                <Col span={24}>
+                    <FoundItemsCount />
+                </Col>
+                <Col span={24}>
+                    {listProduct.map((product: any, idx: number) => (
+                        <Col span={24} key={idx}>
+                            <ProductCard product={product} />
+                        </Col>
+                    ))}
+
+                </Col>
+            </Row>
+        </Container >
     )
 }
 

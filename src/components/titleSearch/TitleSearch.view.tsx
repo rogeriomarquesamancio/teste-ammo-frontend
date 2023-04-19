@@ -1,9 +1,12 @@
 import { Container } from "./TitleSearch.style";
 
-function TitleSearchView() {
+
+function TitleSearchView(props: any) {
+    const { titleValue } = props
+
     return (
         <Container span={24}>
-            Titulo Lista
+            {titleValue}
         </Container>
     )
 }

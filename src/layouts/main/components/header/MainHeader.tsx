@@ -1,10 +1,19 @@
-import React from 'react';
-import { Image, Col, Row, Input, Select } from 'antd';
+import React, { useContext } from 'react';
+import { Image, Col, Row, Input, Select, Form, Divider } from 'antd';
 import styled from 'styled-components';
 import { ContainerHeader } from './MainHeader.style'
-
+import { useState, createContext } from 'react';
+import { GlobalContext } from '../../../../providers/global/GlobalProvider';
 function MainHeader() {
 
+
+    const [inputValue, setInputValue] = useState<string>('');
+    const { search, setSearch } = useContext(GlobalContext);
+
+    function onSearch(value: string) {
+        setSearch(value);
+        setInputValue(value)
+    }
     return (
         <ContainerHeader>
             <Row>
@@ -19,12 +28,16 @@ function MainHeader() {
                     <Select
                         showSearch
                         style={{ width: '100%' }}
-                        placeholder="Search to Select"
+                        allowClear={true}
+                        placeholder="Buscar produtos"
+                        notFoundContent={null}
                         filterOption={(input, option) => (option?.label ?? '').includes(input)}
                         filterSort={(optionA, optionB) =>
                             (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                         }
-                        defaultActiveFirstOption={false}
+                        onSearch={(value: string) => onSearch(value)}
+                        onSelect={(e) => console.log("select", e)}
+                        value={inputValue}
                         showArrow={false}
                         options={[
                             {
@@ -53,7 +66,6 @@ function MainHeader() {
                             },
                         ]}
                     />
-
                 </Col>
             </Row>
         </ContainerHeader>
