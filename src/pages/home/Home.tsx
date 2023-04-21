@@ -1,8 +1,30 @@
-import React, { useState } from 'react';
-import { Col, Row } from 'antd';
+import { useEffect, useState } from 'react';
 import HomeView from './Home.view';
+import { useDoRequest } from '../../hooks';
+import { ISearchProductInput } from '../../module/api/endpoints/product/Product.interface';
 
 function Home() {
+
+    const addPlayerRequest = useDoRequest((api) => api.Product.SearchProduct);
+
+
+    function teste() {
+        let dto: ISearchProductInput = {
+            term: "",
+            page: 1,
+            itens: 10,
+        }
+        addPlayerRequest.doRequest(dto).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        }).finally(() => {
+        })
+    }
+
+    useEffect(() => {
+        teste()
+    }, []);
 
     const [listProduct, setListProduct] = useState<any>([{
         name: 'Kit Cama Acetinado Deluxe Essenza',

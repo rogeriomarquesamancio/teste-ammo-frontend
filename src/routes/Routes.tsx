@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRoutes, Navigate } from 'react-router-dom';
 
 import { MainLayout } from '../layouts';
@@ -11,7 +10,7 @@ function Routes() {
     const routes = useRoutes([
         {
             element: <MainLayout />,
-            children: [{ path: '/home', element: <Home /> }],
+            children: [{ path: '/home/', element: <Home /> }],
         },
         { path: '/', element: <Navigate to='/home' /> },
         { path: '*', element: <Navigate to='/home' /> },
