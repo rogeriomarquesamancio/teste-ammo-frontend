@@ -1,5 +1,4 @@
 import { useState, createContext } from 'react';
-import PropTypes from 'prop-types';
 import { IGlobalProviderContextProps } from './GlobalProviderInterface';
 
 const GlobalContext = createContext({} as any);
@@ -20,10 +19,6 @@ function GlobalProvider(props: IGlobalProviderContextProps) {
             {children}
         </GlobalContext.Provider>
     )
-}
-
-GlobalProvider.propTypes = {
-    children: PropTypes.node.isRequired,
 }
 
 export { GlobalProvider, GlobalContext };
