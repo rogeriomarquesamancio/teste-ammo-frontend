@@ -8,15 +8,16 @@ import {
 
 function Routes() {
     const routes = useRoutes([
-        {
+/*         {
             element: <MainLayout />,
             children: [{ path: '/search', element: <Home />, }],
-        },
+        }, */
         {
             element: <MainLayout />,
             children: [{ path: '/home', element: <Home />}],
         },
         { path: '/', element: <Navigate to='/home' /> },
+        { path: '/search', element: <Navigate to='/home' /> },
         { path: '*', element: <Navigate to='/home' /> },
     ]);
 
