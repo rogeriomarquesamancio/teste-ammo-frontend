@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Image, Col, Row, AutoComplete, Input, Form, Space } from 'antd';
-import { ContainerHeader } from './MainHeader.style'
+import { ContainerHeader, ImageContainer, InputSearchContainer } from './MainHeader.style'
 import { useState } from 'react';
 import { GlobalContext } from '../../../../providers/global/GlobalProvider';
 import { useDoRequest } from '../../../../hooks';
@@ -44,6 +44,7 @@ function MainHeader() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if (!inputValue) return;
         redirectPage(inputValue)
     };
 
@@ -60,8 +61,8 @@ function MainHeader() {
     const setInfo = () => {
         let filter = window.location.search
         let auxString = filter.split('=')[1]
-        setSearch(decodeURI(auxString));
-        setInputValue(decodeURI(auxString))
+        setSearch(auxString ? decodeURI(auxString) : '');
+        setInputValue(auxString ? decodeURI(auxString) : '')
     };
 
     useEffect(() => {
@@ -74,14 +75,14 @@ function MainHeader() {
     return (
         <ContainerHeader>
             <Row>
-                <Col span={18}>
+                <ImageContainer span={18} xs={24} md={12} lg={18}>
                     <Image
                         src="https://img.catalogos365.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://ofertas-chile.s3.us-west-2.amazonaws.com/Mmartan_db548a7863.png"
                         width={150}
                         preview={false}
                     />
-                </Col>
-                <Col span={6}>
+                </ImageContainer>
+                <InputSearchContainer span={6} md={12} xs={24} lg={6}>
                     <Form onSubmitCapture={handleSubmit}>
                         <Space.Compact style={{ width: '100%' }}>
                             <AutoComplete
@@ -104,9 +105,9 @@ function MainHeader() {
                             </AutoComplete>
                         </Space.Compact>
                     </Form>
-                </Col>
+                </InputSearchContainer>
             </Row>
-        </ContainerHeader>
+        </ContainerHeader >
     );
 }
 

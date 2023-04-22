@@ -1,3 +1,4 @@
+import { Row } from 'antd';
 import styled from 'styled-components';
 
 const Container = styled('div')(() => ({
@@ -7,9 +8,36 @@ const Container = styled('div')(() => ({
     padding: '10px'
 }));
 
-const ContainerTetse = styled('div')(() => ({
+const Teste = styled(Row)(() => ({
+    minHeight: '64vh',
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+    width: '100%',
+}));
+
+const ContainerLoading = styled(Row)(() => ({
+    justifyContent: 'center',
+    display: 'flex'
+}));
+
+const PaginationContainer = styled(Row)(() => ({
+    marginTop: '30px'
+}));
+
+const ContainerProduct = styled('div')(() => ({
     padding: '20px',
+    '@media(min-width: 1366px)': {
+        paddingInline: '200px'
+    },
+    '@media(min-width: 770px) and (max-width: 1366px)': {
+        paddingInline: '30px'
+    },
+    '@media(min-width: 0px) and (max-width: 750px)': {
+        paddingInline: '0px'
+    },
 }));
 
 
-export { Container, ContainerTetse };
+
+export { Container, ContainerProduct, Teste,ContainerLoading,PaginationContainer };

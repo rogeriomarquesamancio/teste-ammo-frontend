@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button, Col } from 'antd';
 
 const MyBetterAntDButton = styled(Button)(() => ({
     color: 'red',
@@ -13,7 +13,24 @@ const ContainerHeader = styled('div')(() => ({
     paddingLeft: '40px',
     paddingRight: '40px',
     paddingTop: '10px',
+    '@media(min-width: 0px) and (max-width: 765px)': {
+        paddingLeft: '20px',
+        paddingRight: '20px',
+    },
 }));
 
+const InputSearchContainer = styled(Col)(() => ({
+    '@media(min-width: 0px) and (max-width: 770px)': {
+        justifyContent: 'center',
+        marginTop: "20px"
+    },
+}));
 
-export { MyBetterAntDButton, ContainerHeader };
+const ImageContainer = styled(Col)(() => ({
+    '@media(min-width: 0px) and (max-width: 765px)': {
+        justifyContent: 'center',
+        display: 'flex'
+    },
+}));
+
+export { MyBetterAntDButton, ContainerHeader, InputSearchContainer, ImageContainer };

@@ -8,11 +8,10 @@ function Home() {
 
     const [productsInfo, setProductsInfo] = useState<any>();
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itensPerPage, setItensPerPage] = useState<number>(5);
-    const { search } = useContext(GlobalContext);
+    const [itensPerPage, setItensPerPage] = useState<number>(10);
+    const { search, setSearch } = useContext(GlobalContext);
 
     const searchCategory = useDoRequest((api) => api.Product.SearchProduct);
-
     function getProductListByTerm(page: number, itens: number) {
         let dto: ISearchProductInput = {
             term: search,
@@ -20,6 +19,7 @@ function Home() {
             itens: itens,
         }
         searchCategory.doRequest(dto).then((response) => {
+            window.scrollTo(0, 0)
             setCurrentPage(page)
             setProductsInfo(response.data)
         }).catch((error) => {
@@ -33,14 +33,14 @@ function Home() {
     }
 
     useEffect(() => {
-        if(!search) return;
+        console.log(search)
+        if (!search) return;
         getProductListByTerm(currentPage, itensPerPage)
     }, [search]);
 
 
     function onChange(page: any) {
         getProductListByTerm(page, itensPerPage)
-
     }
 
     return (
@@ -50,6 +50,7 @@ function Home() {
             totalItens={productsInfo?.totalItens}
             itensPerPage={itensPerPage}
             onChangeSelectItens={onChangeSelectItens}
+            loadingRequest={searchCategory.loading}
             onChange={onChange}
         />
     )

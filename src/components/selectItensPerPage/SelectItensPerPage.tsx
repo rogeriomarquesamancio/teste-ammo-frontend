@@ -13,8 +13,10 @@ function SelectItensPerPage(props: any) {
                 onChange={onChange}
                 value={itensPerPage}
                 options={[
-                    { value: 1, label: '1 produtos por página' },
                     { value: 5, label: '5 produtos por página' },
+                    { value: 10, label: '10 produtos por página' },
+                    { value: 20, label: '20 produtos por página' },
+                    { value: 30, label: '30 produtos por página' },
                 ]}
             />
         </Container>

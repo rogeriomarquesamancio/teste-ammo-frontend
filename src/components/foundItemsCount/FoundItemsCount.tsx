@@ -5,7 +5,7 @@ function FoundItemsCount(props: any) {
     return (
         <DivTitle>
             <SpanTitle>
-                {`${totalItens} produtos encontrados`}
+                {`${totalItens || 0} produtos encontrados`}
             </SpanTitle>
         </DivTitle>
     )
