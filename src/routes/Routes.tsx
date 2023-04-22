@@ -10,7 +10,15 @@ function Routes() {
     const routes = useRoutes([
         {
             element: <MainLayout />,
-            children: [{ path: '/home/', element: <Home /> }],
+            children: [{ path: '/home', element: <Home />}],
+        },
+        {
+            element: <MainLayout />,
+            children: [{ path: '/search', element: <Home />, }],
+        },
+        {
+            element: <MainLayout />,
+            children: [{ path: '/search?product=/:strfilter', element: <Home />, }],
         },
         { path: '/', element: <Navigate to='/home' /> },
         { path: '*', element: <Navigate to='/home' /> },

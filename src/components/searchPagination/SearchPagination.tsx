@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
-import TitleSearchView from "./TitleSearch.view";
+import SearchPaginationView from "./SearchPagination.view";
 import { GlobalContext } from '../../providers/global/GlobalProvider';
 
 
-function TitleSearch() {
+function SearchPagination() {
 
     const { search, setSearch } = useContext(GlobalContext);
     return (
-        <TitleSearchView
+        <SearchPaginationView
             titleValue={search}
         />
     )
 }
 
-export default TitleSearch;
+export default SearchPagination;

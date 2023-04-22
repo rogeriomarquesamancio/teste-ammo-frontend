@@ -6,7 +6,7 @@ function TitleSearchView(props: any) {
 
     return (
         <Container span={24}>
-            {titleValue}
+            Resultados para: {titleValue}
         </Container>
     )
 }

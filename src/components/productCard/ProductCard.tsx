@@ -1,16 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GlobalContext } from '../../providers/global/GlobalProvider';
-import { Divider, Row } from 'antd';
-import { DivTitle } from './ProductCard.style'
+import { Card, Col, Divider, Row } from 'antd';
+import { CardStyled, ImgStyled, ContainerCard } from './ProductCard.style'
 
 function ProductCard(props: any) {
-    const { product } = props
-    const { search, setSearch } = useContext(GlobalContext);
-    console.log(search)
+    const { product } = props;
+    console.log(product)
+    const [src, setSrc] = useState<string>(product.images[0].src);
     return (
-        <Row>
-            {product.name}
-        </Row>
+        <ContainerCard>
+            <CardStyled>
+                <ImgStyled
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                    src={src}
+                    onMouseEnter={() => setSrc(product.images[1].src)}
+                    onMouseLeave={() => setSrc(product.images[0].src)}
+                />
+                <Row>
+                    <Col span={24} style={{ minHeight: '40px' }}>
+                        {product.name}
+                    </Col>
+                    <Col span={24}>
+                        {`R$ ${product.originalPrice}`}
+                    </Col>
+                </Row>
+            </CardStyled>
+        </ContainerCard >
     )
 }
 

@@ -4,28 +4,55 @@ import { Col, Divider, Row } from 'antd';
 import TitleSearch from '../../components/titleSearch/TitleSearch';
 import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
 import ProductCard from '../../components/productCard/ProductCard';
+import SearchPaginationView from '../../components/searchPagination/SearchPagination.view';
+import SelectItensPerPage from '../../components/selectItensPerPage/SelectItensPerPage';
 
 function HomeView(props: any) {
-    const { listProduct } = props
-
+    const { productslist, currentPage, totalItens, itensPerPage, onChange, onChangeSelectItens } = props
     return (
         <Container>
             <Row>
                 <TitleSearch />
             </Row>
-            <Row>
-                <Col span={24}>
-                    <FoundItemsCount />
-                </Col>
-                <Col span={24}>
-                    {listProduct.map((product: any, idx: number) => (
-                        <Col span={24} key={idx}>
+            <div style={{ paddingLeft: '100px', paddingRight: '100px' }}>
+                <Row >
+                    <Col span={24}>
+                        <FoundItemsCount totalItens={totalItens} />
+                    </Col>
+                    {productslist?.map((product: any, idx: number) => (
+                        <Col span={4} xs={24} md={4} key={idx}>
                             <ProductCard product={product} />
                         </Col>
                     ))}
+                    {productslist?.map((product: any, idx: number) => (
+                        <Col span={4} xs={24} md={4} key={idx}>
+                            <ProductCard product={product} />
+                        </Col>
+                    ))}
+                    {productslist?.map((product: any, idx: number) => (
+                        <Col span={4} xs={24} md={4} key={idx}>
+                            <ProductCard product={product} />
+                        </Col>
+                    ))}
+                </Row>
 
-                </Col>
-            </Row>
+                <Row>
+                    <Col span={12}>
+                        <SelectItensPerPage
+                            onChange={onChangeSelectItens}
+                            itensPerPage={itensPerPage}
+                        />
+                    </Col>
+                    <Col span={12}>
+                        <SearchPaginationView
+                            currentPage={currentPage}
+                            itensPerPage={itensPerPage}
+                            onChange={onChange}
+                            totalItens={totalItens}
+                        />
+                    </Col>
+                </Row>
+            </div>
         </Container >
     )
 }

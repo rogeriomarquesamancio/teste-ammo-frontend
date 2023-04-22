@@ -1,3 +1,5 @@
+import { ICategoryDTO } from "../category/Category.interface"
+import { IProductImageDTO } from "../productImage/ProductImage.interface"
 
 export interface IProductDTO {
     idProduct: number,
@@ -6,8 +8,8 @@ export interface IProductDTO {
     promotionalPrice?: number,
     originalPrice: number,
     idCategory: number,
-    images: any
-    category: any
+    images: Array<IProductImageDTO>
+    category: ICategoryDTO
 }
 
 export interface ISearchProductInput {
@@ -15,3 +17,10 @@ export interface ISearchProductInput {
     page: number,
     itens: number
 }
+
+export interface ISearchProductOutput {
+    pageCount: number,
+    productList: Array<IProductDTO>,
+    totalItens: number,
+}
+
