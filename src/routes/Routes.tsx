@@ -8,17 +8,20 @@ import {
 
 function Routes() {
     const routes = useRoutes([
-/*         {
-            element: <MainLayout />,
-            children: [{ path: '/search', element: <Home />, }],
-        }, */
         {
             element: <MainLayout />,
-            children: [{ path: '/home', element: <Home />}],
+            children: [{ path: '/', element: <Home />}],
         },
-        { path: '/', element: <Navigate to='/home' /> },
-        { path: '/search', element: <Navigate to='/home' /> },
-        { path: '*', element: <Navigate to='/home' /> },
+        {
+            element: <MainLayout />,
+            children: [{ path: '/search', element: <Home />, }],
+        },
+        {
+            element: <MainLayout />,
+            children: [{ path: '/search?product=:strfilter', element: <Home />, }],
+        },
+        { path: '/', element: <Navigate to='/' /> },
+        { path: '*', element: <Navigate to='/' /> },
     ]);
 
     return routes;
