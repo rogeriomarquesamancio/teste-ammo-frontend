@@ -1,6 +1,4 @@
-import { GlobalContext } from '../../providers/global/GlobalProvider';
 import SearchPagination from './SearchPagination'
-import React, { useContext } from 'react';
 
 describe('<SearchPagination />', () => {
 	it('renders', () => {

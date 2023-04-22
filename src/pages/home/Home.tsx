@@ -14,14 +14,12 @@ function Home() {
     const searchCategory = useDoRequest((api) => api.Product.SearchProduct);
 
     function getProductListByTerm(page: number, itens: number) {
-        console.log(search)
         let dto: ISearchProductInput = {
             term: search,
             page: page,
             itens: itens,
         }
         searchCategory.doRequest(dto).then((response) => {
-            console.log(response.data)
             setCurrentPage(page)
             setProductsInfo(response.data)
         }).catch((error) => {

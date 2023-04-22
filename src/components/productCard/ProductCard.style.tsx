@@ -1,4 +1,4 @@
-import { Card, Col } from 'antd';
+import { Card } from 'antd';
 import styled from 'styled-components';
 
 const CardStyled = styled(Card)(({

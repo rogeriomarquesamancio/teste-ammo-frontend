@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import { Container } from './Home.style';
-import { Col, Divider, Row } from 'antd';
+import { Col, Row } from 'antd';
 import TitleSearch from '../../components/titleSearch/TitleSearch';
 import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
 import ProductCard from '../../components/productCard/ProductCard';
-import SearchPaginationView from '../../components/searchPagination/SearchPagination.view';
 import SelectItensPerPage from '../../components/selectItensPerPage/SelectItensPerPage';
 import SearchPagination from '../../components/searchPagination/SearchPagination';
 

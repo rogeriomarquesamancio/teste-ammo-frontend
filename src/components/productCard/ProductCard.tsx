@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { GlobalContext } from '../../providers/global/GlobalProvider';
-import { Card, Col, Divider, Row } from 'antd';
+import { useState } from 'react';
+import { Col, Row } from 'antd';
 import { CardStyled, ImgStyled, ContainerCard } from './ProductCard.style'
 
 function ProductCard(props: any) {
     const { product } = props;
-    console.log(product)
     const [src, setSrc] = useState<string>(product.images[0].src);
     return (
         <ContainerCard>

@@ -14,7 +14,7 @@ function MainHeader() {
 
     const [inputValue, setInputValue] = useState<string>('');
     const [filteredList, setFilteredList] = useState<any>([]);
-    const { search, setSearch, categoryList, setCategoryList } = useContext(GlobalContext);
+    const { setSearch, categoryList, setCategoryList } = useContext(GlobalContext);
     const navigate = useNavigate();
     const [isMounted, setIsMounted] = useState(false);
 
