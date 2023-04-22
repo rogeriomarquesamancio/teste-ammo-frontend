@@ -6,6 +6,7 @@ import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
 import ProductCard from '../../components/productCard/ProductCard';
 import SearchPaginationView from '../../components/searchPagination/SearchPagination.view';
 import SelectItensPerPage from '../../components/selectItensPerPage/SelectItensPerPage';
+import SearchPagination from '../../components/searchPagination/SearchPagination';
 
 function HomeView(props: any) {
     const { productslist, currentPage, totalItens, itensPerPage, onChange, onChangeSelectItens } = props
@@ -44,7 +45,7 @@ function HomeView(props: any) {
                         />
                     </Col>
                     <Col span={12}>
-                        <SearchPaginationView
+                        <SearchPagination
                             currentPage={currentPage}
                             itensPerPage={itensPerPage}
                             onChange={onChange}
