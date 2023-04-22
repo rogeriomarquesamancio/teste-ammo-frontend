@@ -1,6 +1,3 @@
-import React, { useContext } from 'react';
-import SelectItensPerPageView from "./SelectItensPerPage.view";
-import { GlobalContext } from '../../providers/global/GlobalProvider';
 import { Container } from "./SelectItensPerPage.style";
 import { Select } from 'antd';
 
