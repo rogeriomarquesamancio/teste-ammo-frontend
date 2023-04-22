@@ -1,6 +1,6 @@
 import RestApi from '../../RestApi';
 import { IResponse } from '../../../model';
-import { IProductDTO, ISearchProductInput,ISearchProductOutput } from './Product.interface';
+import { ISearchProductInput,ISearchProductOutput } from './Product.interface';
 
 export default class ProductRequest {
     public static URL_PRODUCT = `${RestApi.URL}/product`;
