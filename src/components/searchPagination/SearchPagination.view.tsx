@@ -6,7 +6,7 @@ function SearchPaginationView(props: any) {
     const { itensPerPage, onChange, totalItens, currentPage } = props
 
     return (
-        <Container span={24}>
+        <Container lg={12} xs={24} sm={12}>
             <Pagination
                 current={currentPage}
                 total={totalItens}

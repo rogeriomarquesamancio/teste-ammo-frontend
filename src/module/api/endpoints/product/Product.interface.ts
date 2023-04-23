@@ -13,7 +13,7 @@ export interface IProductDTO {
 }
 
 export interface ISearchProductInput {
-    term: string,
+    term?: string,
     page: number,
     itens: number
 }

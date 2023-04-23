@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card, Row } from 'antd';
 import styled from 'styled-components';
 
 const CardStyled = styled(Card)(({
@@ -42,6 +42,9 @@ const PromotionalPriceStyled = styled('div')(({
     },
 }));
 
+const ContainerProductInfo = styled(Row)(({
+    marginBottom: '10px'
+}));
 
 const ImgStyled = styled('img')(({
     marginLeft: '0.1px',
@@ -49,4 +52,12 @@ const ImgStyled = styled('img')(({
 }));
 
 
-export { CardStyled, ImgStyled, ContainerCard, NameStyled, OriginalPriceStyled, PromotionalPriceStyled };
+export {
+    CardStyled,
+    ImgStyled,
+    ContainerCard,
+    NameStyled,
+    OriginalPriceStyled,
+    PromotionalPriceStyled,
+    ContainerProductInfo
+};

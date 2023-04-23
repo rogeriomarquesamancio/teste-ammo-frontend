@@ -1,21 +1,26 @@
-import { ContainerFooter } from './MainFooter.style';
-
+import { ContainerFooter, StyledText } from './MainFooter.style';
+import React from 'react';
 function MainFooter() {
-    function Copyright() {
+
+
+    function DevBy() {
         return (
-            <div>
-                {'Copyright © '}
-                {'Your Website '}
-                {new Date().getFullYear()}
-                {'.'}
-            </div>
+            <StyledText>
+                {'Desenvolvido por '}
+                <span>
+                    {'Rogério Marques '}
+                </span>
+                {`@ ${new Date().getFullYear()}.`}
+            </StyledText>
         );
     }
 
     return (
-        <ContainerFooter>
-            <Copyright />
-        </ContainerFooter>
+        <React.Fragment>
+            <ContainerFooter>
+                <DevBy />
+            </ContainerFooter>
+        </React.Fragment>
     )
 }
 

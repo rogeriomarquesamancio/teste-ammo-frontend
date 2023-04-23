@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Col, Row, Skeleton } from 'antd';
-import { CardStyled, ImgStyled, ContainerCard, NameStyled, OriginalPriceStyled, PromotionalPriceStyled } from './ProductCard.style'
+import { Col } from 'antd';
+import { CardStyled, ImgStyled, ContainerCard, NameStyled, OriginalPriceStyled, PromotionalPriceStyled, ContainerProductInfo } from './ProductCard.style'
 
 function ProductCard(props: any) {
     const { product } = props;
@@ -30,7 +30,7 @@ function ProductCard(props: any) {
                     onMouseEnter={() => product.images[1] ? setSrc(product.images[1].src) : null}
                     onMouseLeave={() => setSrc(product.images[0].src)}
                 />
-                <Row>
+                <ContainerProductInfo>
                     <Col span={24} style={{ minHeight: '50px' }}>
                         <NameStyled>
                             {product.name}
@@ -53,9 +53,9 @@ function ProductCard(props: any) {
                             {`R$ ${formatCurrency(product?.promotionalPrice ? product.promotionalPrice : product.originalPrice)}`}
                         </OriginalPriceStyled>
                     </Col>
-                </Row>
+                </ContainerProductInfo>
             </CardStyled>
-        </ContainerCard >
+        </ContainerCard>
     )
 }
 

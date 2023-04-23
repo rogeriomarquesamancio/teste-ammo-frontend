@@ -1,24 +1,22 @@
 import { useState, createContext } from 'react';
-import { IGlobalProviderContextProps } from './GlobalProviderInterface';
-import { ICategoryDTO } from '../../module/api/endpoints/category/Category.interface';
 
-const GlobalContext = createContext({} as any);
+import { IGlobalContext, IGlobalProviderContextProps } from './GlobalProviderInterface';
+import { IProductDTO } from '../../module/api/endpoints/product/Product.interface';
+
+const GlobalContext = createContext({} as IGlobalContext);
 
 function GlobalProvider(props: IGlobalProviderContextProps) {
 
     const { children } = props;
 
     const [search, setSearch] = useState<string>();
-    const [productsInfo, setProductsInfo] = useState<any>();
-    const [categoryList, setCategoryList] = useState<ICategoryDTO[]>([]);
+    const [productsInfo, setProductsInfo] = useState<IProductDTO>();
 
-    const sharedValue = {
+    const sharedValue: IGlobalContext = {
         search,
         setSearch,
         productsInfo,
         setProductsInfo,
-        categoryList,
-        setCategoryList
     };
 
     return (

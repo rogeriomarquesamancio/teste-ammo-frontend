@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
-import { GlobalProvider } from './providers';
 
+import { GlobalProvider } from './providers';
 import Routes from './routes/Routes';
 
 function App() {

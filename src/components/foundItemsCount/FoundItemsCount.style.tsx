@@ -15,9 +15,9 @@ const DivTitle = styled('div')(({
 const SpanTitle = styled('span')(({
     textTransform: 'uppercase',
     fontWeight: '400',
-    borderBottom: '3px solid rgb(223, 190, 127)',
-    color: 'rgb(56, 56, 57)',
-    fontSize: '0.8rem',
+    borderBottom: '3px solid #DFBE7F',
+    color: '#383839',
+    fontSize: '0.9rem',
 }));
 
 export { DivTitle, SpanTitle };
