@@ -96,6 +96,11 @@ Exemplo de como é estruturado o fluxo, nesse caso o exemplo em questão é o co
 > FoundItemsCount.view - Renderização do item </br>
 > FoundItemsCount - Regras/funções/formatação e demais variáveis </br>
 
+## Testes
+
+Os testes feito em cypress foram testes de renderização dos componentes, documentação disponível em: https://docs.cypress.io/guides/overview/why-cypress </br>
+Em relação a um teste feito visualmente acessando a tela, caso queira trazer bastante itens busque por letras em comum 'a' 'e', já nas categorias de busca tente por 'Cama' 'Tapete' 'Mesa'
+
 <!-- E SE MELHORARMOS? -->
 ## E se existisse um cenário ideal?
 Devido aos requisitos de um e-commerce, talvez o melhor dos mundos seria um projeto front-end em Next.JS devido suas vantagens em seu funcionamento/pré visualização/motores de busca,
