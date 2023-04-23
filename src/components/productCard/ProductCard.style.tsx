@@ -13,6 +13,7 @@ const CardStyled = styled(Card)(({
         border: '2px solid rgba(153, 137, 124, 0.5)'
     },
 }));
+
 const NameStyled = styled('span')(({
     padding: '5px',
     fontWeight: '700',
@@ -48,7 +49,10 @@ const ContainerProductInfo = styled(Row)(({
 
 const ImgStyled = styled('img')(({
     marginLeft: '0.1px',
-    borderRadius: '6px 6px 0 0'
+    borderRadius: '6px 6px 0 0',
+    maxWidth: '100%',
+    height: 'auto',
+    width: '100%'
 }));
 
 

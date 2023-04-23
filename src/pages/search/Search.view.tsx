@@ -1,15 +1,29 @@
-import { Container, ContainerProduct, Teste, ContainerLoading, PaginationContainer } from './Search.style';
 import { Col, Row, Spin } from 'antd';
-import TitleSearch from '../../components/titleSearch/TitleSearch';
-import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
-import ProductCard from '../../components/productCard/ProductCard';
-import SelectItensPerPage from '../../components/selectItensPerPage/SelectItensPerPage';
-import SearchPagination from '../../components/searchPagination/SearchPagination';
 import { LoadingOutlined } from '@ant-design/icons';
-import NotFoundProduct from '../../components/notFoundProduct/NotFoundProduct';
 
-function SearchView(props: any) {
-    const { productslist, currentPage, totalItens, itensPerPage, onChange, onChangeSelectItens, loadingRequest, hasSearchText, hasLoadingData } = props
+import TitleSearch from '../../components/titleSearch/TitleSearch';
+import ProductCard from '../../components/productCard/ProductCard';
+import NotFoundProduct from '../../components/notFoundProduct/NotFoundProduct';
+import FoundItemsCount from '../../components/foundItemsCount/FoundItemsCount';
+import SearchPagination from '../../components/searchPagination/SearchPagination';
+import SelectItensPerPage from '../../components/selectItensPerPage/SelectItensPerPage';
+
+import { IProductDTO } from '../../module/api/endpoints/product/Product.interface';
+
+import { ISearchViewProps } from './Search.interface';
+import { Container, ContainerProduct, ContainerProductList, ContainerLoading, PaginationContainer } from './Search.style';
+
+function SearchView(props: ISearchViewProps) {
+    const { productslist,
+        currentPage,
+        totalItens,
+        itensPerPage,
+        onChangePagination,
+        onChangeSelectItens,
+        loadingRequest,
+        hasLoadData
+    } = props
+
     return (
         <Container>
             <Row>
@@ -17,36 +31,40 @@ function SearchView(props: any) {
             </Row>
             <ContainerProduct>
                 <Row>
-                    <Col span={24}>
+                    <Col span={24}> {/* Componente itens encontrados */}
                         <FoundItemsCount totalItens={totalItens} />
                     </Col>
-                    <Teste>
+                    <ContainerProductList>
                         {!loadingRequest ?
-                            productslist?.length && hasSearchText ?
-                                productslist?.map((product: any, idx: number) => (
-                                    <Col span={4} xs={24} md={12} lg={6} key={idx}>
+                            productslist?.length ?
+                                productslist?.map((product: IProductDTO, idx: number) => (
+                                    <Col span={4} xs={24} md={12} lg={6} key={idx}>  {/* Componente card de produtos */}
                                         <ProductCard product={product} />
                                     </Col>
                                 ))
-                                : hasLoadingData && <>
-                                    <NotFoundProduct />
-                                </>
+                                : hasLoadData &&
+                                <NotFoundProduct />  /* Componente de aviso ao usuário caso produto não encontrado */
                             :
-                            <ContainerLoading>
-                                <Spin indicator={<LoadingOutlined style={{ fontSize: 54 }} spin={loadingRequest} color='red' />} />
+                            <ContainerLoading>   {/* Loading */}
+                                <Spin indicator={
+                                    <LoadingOutlined
+                                        className='loading-icon'
+                                        spin={loadingRequest}
+                                    />}
+                                />
                             </ContainerLoading>
                         }
-                    </Teste>
+                    </ContainerProductList>
                 </Row>
                 <PaginationContainer>
-                    <SelectItensPerPage
+                    <SelectItensPerPage  /* Input select para mostrar itens por página */
                         onChange={onChangeSelectItens}
                         itensPerPage={itensPerPage}
                     />
-                    <SearchPagination
+                    <SearchPagination  /* Paginação */
                         currentPage={currentPage}
                         itensPerPage={itensPerPage}
-                        onChange={onChange}
+                        onChange={onChangePagination}
                         totalItens={totalItens}
                     />
                 </PaginationContainer>

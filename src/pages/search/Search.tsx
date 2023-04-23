@@ -1,47 +1,58 @@
 import { useContext, useEffect, useState } from 'react';
+import { message } from 'antd';
 
 import { useDoRequest } from '../../hooks';
 import { GlobalContext } from '../../providers/global/GlobalProvider';
-import { ISearchProductInput } from '../../module/api/endpoints/product/Product.interface';
+import { ISearchProductInput, ISearchProductOutput } from '../../module/api/endpoints/product/Product.interface';
+
 import SearchView from './Search.view';
+import enumProductsPerPage from '../../enum/enumProductsPage';
 
 function Search() {
+    const [productsInfo, setProductsInfo] = useState<ISearchProductOutput>(); // Váriavel com a lista de produtos e informação da paginação
+    const [currentPage, setCurrentPage] = useState<number>(1); // Página atual
+    const [itensPerPage, setItensPerPage] = useState<number>(enumProductsPerPage.EIGHT_PER_PAGE); // Itens por página
+    const [hasLoadData, setLoadingData] = useState<boolean>(false); // Variável responsável por confirmar o recebimento dos dados
 
-    const [productsInfo, setProductsInfo] = useState<any>();
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itensPerPage, setItensPerPage] = useState<number>(8);
-    const [hasLoadingData, setHasLoadingData] = useState<boolean>(false);
+    const { searchText } = useContext(GlobalContext); // Informação salva no context
 
-    const { search } = useContext(GlobalContext);
+    const searchCategory = useDoRequest((api) => api.Product.SearchProduct); // API Buscar produto páginado por termo
 
-    const searchCategory = useDoRequest((api) => api.Product.SearchProduct);
-
+    // UseEffect para buscar listagem de produtos
     useEffect(() => {
-        if (!search) return;
-        getProductListByTerm(currentPage, itensPerPage)
-    }, [search]);
+        if (!searchText) return;
 
+        getProductListByTerm(currentPage, itensPerPage)
+    }, [searchText]);
+
+    // Request para buscar listagem de produtos
     function getProductListByTerm(page: number, itens: number) {
         let dto: ISearchProductInput = {
-            term: search,
+            term: searchText,
             page: page,
             itens: itens,
         }
+
         searchCategory.doRequest(dto).then((response) => {
-            window.scrollTo(0, 0)
-            setCurrentPage(page)
-            setProductsInfo(response.data)
-            setHasLoadingData(true)
-        }).catch((error) => {
-            console.log(error)
+            if (response?.data) {
+                window.scrollTo(0, 0)
+                setCurrentPage(page)
+                setProductsInfo(response.data)
+                setLoadingData(true)
+            }
+        }).catch(() => {
+            message.error('Ocorreu um erro ao buscar produtos!');
         })
     }
-    function onChangeSelectItens(page: any) {
+
+    // Mudança ao selecionar produtos por página
+    function onChangeSelectItens(page: number) {
         getProductListByTerm(1, page)
         setItensPerPage(page)
     }
 
-    function onChange(page: any) {
+    // Mudança na paginação
+    function onChangePagination(page: number) {
         getProductListByTerm(page, itensPerPage)
     }
 
@@ -49,13 +60,12 @@ function Search() {
         <SearchView
             productslist={productsInfo?.productList}
             currentPage={currentPage}
-            totalItens={productsInfo?.totalItens}
+            totalItens={productsInfo?.totalItens || 0}
             itensPerPage={itensPerPage}
-            onChangeSelectItens={onChangeSelectItens}
             loadingRequest={searchCategory.loading}
-            hasSearchText={!!search && hasLoadingData}
-            hasLoadingData={hasLoadingData}
-            onChange={onChange}
+            hasLoadData={hasLoadData}
+            onChangeSelectItens={onChangeSelectItens}
+            onChangePagination={onChangePagination}
         />
     )
 }

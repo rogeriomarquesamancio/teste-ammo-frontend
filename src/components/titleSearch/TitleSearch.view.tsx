@@ -1,12 +1,12 @@
+import { ITitleSearchViewInterface } from "./TitleSearchView.interface";
 import { Container } from "./TitleSearch.style";
 
-
-function TitleSearchView(props: any) {
+function TitleSearchView(props: ITitleSearchViewInterface) {
     const { titleValue } = props
 
     return (
         <Container span={24}>
-            Resultados para: {titleValue}
+            {`Resultados para: ${titleValue || ''}`}
         </Container>
     )
 }

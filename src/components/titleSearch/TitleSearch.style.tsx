@@ -1,5 +1,5 @@
-import { Col } from 'antd';
 import styled from 'styled-components';
+import { Col } from 'antd';
 
 const Container = styled(Col)(() => ({
     paddingLeft: '20px',
@@ -11,6 +11,5 @@ const Container = styled(Col)(() => ({
     fontSize: '1.7rem',
     fontWeight: '100',
 }));
-
 
 export { Container };

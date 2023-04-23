@@ -1,18 +1,8 @@
 export default class RestApi {
-
+    
+    // URL de conexão da API
     static getUrl(): string {
-       /*  switch (process.env.REACT_APP_ENVIRONMENT) {
-            case 'local':
-                return 'https://localhost:44390';
-            case 'dev':
-                return 'dev';
-            case 'homol':
-                return 'homol'; */
-          /*   case 'prod': */
-                return 'https://ammo-varejo-api.onrender.com';
-       /*      default:
-                throw new Error(`Error message`);
-        } */
+        return 'https://ammo-varejo-api.onrender.com';
     }
 
     public static URL = this.getUrl();
@@ -24,7 +14,6 @@ export default class RestApi {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: this.TOKEN
             },
             body: JSON.stringify(body)
         });
@@ -34,6 +23,4 @@ export default class RestApi {
     public static httpPost = (url: string, body: any) => this.httpMethod("POST", url, body).then((res) => res.json());
     public static httpPut = (url: string, body: any) => this.httpMethod("PUT", url, body).then((res) => res.json());
     public static httpDelete = (url: string) => this.httpMethod("DELETE", url).then((res) => res.json());
-
-    public static setToken = (token: string | null) => this.TOKEN = `Bearer ${token}`;
 }

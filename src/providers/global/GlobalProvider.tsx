@@ -9,14 +9,13 @@ function GlobalProvider(props: IGlobalProviderContextProps) {
 
     const { children } = props;
 
-    const [search, setSearch] = useState<string>();
+    // Váriaveis salvas no context
+    const [searchText, setSearchText] = useState<string>();
     const [productsInfo, setProductsInfo] = useState<IProductDTO>();
-
+    
     const sharedValue: IGlobalContext = {
-        search,
-        setSearch,
-        productsInfo,
-        setProductsInfo,
+        searchText,
+        setSearchText,
     };
 
     return (

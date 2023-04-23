@@ -1,7 +1,7 @@
-import { ContainerFooter, StyledText } from './MainFooter.style';
 import React from 'react';
-function MainFooter() {
+import { ContainerFooter, StyledText } from './MainFooter.style';
 
+function MainFooter() {
 
     function DevBy() {
         return (
@@ -23,5 +23,4 @@ function MainFooter() {
         </React.Fragment>
     )
 }
-
 export default MainFooter;

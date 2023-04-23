@@ -5,23 +5,6 @@ const Container = styled('div')(() => ({
     paddingTop: '2px',
 }));
 
-const Teste = styled(Row)(() => ({
-    minHeight: '64vh',
-    alignItems: 'center',
-    justifyContent: 'center',
-    display: 'flex',
-    width: '100%',
-}));
-
-const ContainerLoading = styled(Row)(() => ({
-    justifyContent: 'center',
-    display: 'flex'
-}));
-
-const PaginationContainer = styled(Row)(() => ({
-    marginTop: '30px'
-}));
-
 const ContainerProduct = styled('div')(() => ({
     padding: '20px',
     '@media(min-width: 1366px)': {
@@ -35,6 +18,31 @@ const ContainerProduct = styled('div')(() => ({
     },
 }));
 
+const ContainerProductList = styled(Row)(() => ({
+    minHeight: '64vh',
+    alignItems: 'center',
+    display: 'flex',
+    width: '100%',
+}));
 
+const ContainerLoading = styled(Row)(() => ({
+    justifyContent: 'center',
+    width: '100%',
+    display: 'flex',
+    '.loading-icon': {
+        fontSize: '54px',
+        color: '#DFBE7F'
+    },
+}));
 
-export { Container, ContainerProduct, Teste, ContainerLoading, PaginationContainer };
+const PaginationContainer = styled(Row)(() => ({
+    marginTop: '30px'
+}));
+
+export {
+    Container,
+    ContainerProduct,
+    ContainerProductList,
+    ContainerLoading,
+    PaginationContainer
+};

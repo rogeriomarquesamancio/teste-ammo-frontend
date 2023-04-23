@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import RestAPIEndpoints from '../../module/api/endpoints';
 import { IUseDoRequestActions } from './useDoRequest.interface';
 
+// Gerenciamento requests
 function useDoRequest<input, output>(
     apiRequest: (a: typeof RestAPIEndpoints) => ((data: input) => Promise<output>)
 ): IUseDoRequestActions<input, output> {

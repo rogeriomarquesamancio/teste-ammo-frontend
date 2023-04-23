@@ -1,15 +1,9 @@
-import { Text, ContainerImage } from './NotFoundProduct.style'
+import NotFoundProductView from './NotFoundProduct.view';
 
+// Componente de quando o produto não é encontrado
 function NotFoundProduct() {
     return (
-        <div>
-            <ContainerImage>
-                <img src='https://mmartan.com.br/images/notfound/error-page-illustration.png' />
-            </ContainerImage>
-            <Text>
-                {'Nenhum resultado encontrado, por favor tente novamente.'}
-            </Text>
-        </div>
+        <NotFoundProductView />
     )
 }
 

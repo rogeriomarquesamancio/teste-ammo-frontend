@@ -1,5 +1,5 @@
-import { Col, Row } from 'antd';
 import styled from 'styled-components';
+import { Col, Row } from 'antd';
 
 const Text = styled('h1')(({
     marginTop: '60px',
@@ -17,7 +17,6 @@ const Container = styled(Row)(({
     alignItems: 'center',
     alignContent: 'center',
 }));
-
 
 const ContainerText = styled(Col)(({
     width: '100%',

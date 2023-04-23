@@ -1,8 +1,8 @@
 import { Pagination } from "antd";
 import { Container } from "./SearchPagination.style";
+import { ISearchPaginationViewInterface } from './SearchPagination.interface';
 
-
-function SearchPaginationView(props: any) {
+function SearchPaginationView(props: ISearchPaginationViewInterface) {
     const { itensPerPage, onChange, totalItens, currentPage } = props
 
     return (

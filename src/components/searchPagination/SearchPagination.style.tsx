@@ -1,5 +1,5 @@
-import { Col } from 'antd';
 import styled from 'styled-components';
+import { Col } from 'antd';
 
 const Container = styled(Col)(() => ({
     justifyContent: 'flex-end',
@@ -11,6 +11,5 @@ const Container = styled(Col)(() => ({
         display: 'flex'
     },
 }));
-
 
 export { Container };

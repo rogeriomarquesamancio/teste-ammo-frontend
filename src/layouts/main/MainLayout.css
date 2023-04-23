@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+/* Tornando a barra de rolagem arredondada */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/* Definindo a cor da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background-color: rgb(223, 190, 127, 0.7);
+}

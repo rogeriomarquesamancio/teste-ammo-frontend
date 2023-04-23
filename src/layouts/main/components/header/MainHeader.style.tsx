@@ -1,13 +1,6 @@
 
 import styled from 'styled-components';
-import { Button, Col, Image as AntdImage } from 'antd';
-
-const MyBetterAntDButton = styled(Button)(() => ({
-    color: 'red',
-    display: 'flex',
-    justifyContent: 'center',
-}));
-
+import { Col, Image as AntdImage } from 'antd';
 
 const ContainerHeader = styled('div')(() => ({
     paddingInline: '40px',
@@ -16,7 +9,7 @@ const ContainerHeader = styled('div')(() => ({
     boxShadow: 'rgba(0, 0, 0, 0.2) 0 2px 2px 0.1px',
     '@media(min-width: 0px) and (max-width: 765px)': {
         paddingInline: '20px',
-    },
+    }
 }));
 
 const InputSearchContainer = styled(Col)(() => ({
@@ -38,5 +31,9 @@ const Image = styled(AntdImage)(() => ({
     cursor: 'pointer'
 }));
 
-
-export { MyBetterAntDButton, ContainerHeader, InputSearchContainer, ImageContainer, Image };
+export {
+    ContainerHeader,
+    InputSearchContainer,
+    ImageContainer,
+    Image
+};

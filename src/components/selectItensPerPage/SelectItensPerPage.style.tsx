@@ -1,7 +1,6 @@
 import { Col, Select } from 'antd';
 import styled from 'styled-components';
 
-
 const SelectStyled = styled(Select)(() => ({
     paddingLeft: '10px',
     width: '220px',
@@ -22,4 +21,4 @@ const Container = styled(Col)(() => ({
 }));
 
 
-export { SelectStyled,Container };
+export { SelectStyled, Container };

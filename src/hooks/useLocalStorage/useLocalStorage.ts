@@ -2,6 +2,7 @@ import { useCallback, useState, useEffect } from 'react'
 
 import { IUseLocalStorageActions } from './useLocalStorage.interface';
 
+// Gerenciamento do local storage
 function useLocalStorage<T>(key: string, initialValue?: T): IUseLocalStorageActions<T> {
     const [value, setValue] = useState(() => {
         try {

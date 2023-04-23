@@ -1,13 +1,13 @@
-import { DivTitle, SpanTitle } from './FoundItemsCount.style'
+import { IFoundItemsCountViewProps } from './FoundItemsCount.interface';
+import FoundItemsCountView from './FoundItemsCount.view';
 
-function FoundItemsCount(props: any) {
+// Texto/header para visualizar a quantidade de itens encontrados
+function FoundItemsCount(props: IFoundItemsCountViewProps) {
     const { totalItens } = props
     return (
-        <DivTitle>
-            <SpanTitle>
-                {`${totalItens || 0} produtos encontrados`}
-            </SpanTitle>
-        </DivTitle>
+        <FoundItemsCountView
+            totalItens={totalItens}
+        />
     )
 }
 

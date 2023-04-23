@@ -1,16 +1,17 @@
 import { useContext } from 'react';
-import SearchPaginationView from "./SearchPagination.view";
+
 import { GlobalContext } from '../../providers/global/GlobalProvider';
+import SearchPaginationView from "./SearchPagination.view";
+import { ISearchPaginationViewInterface } from './SearchPagination.interface';
 
-
-function SearchPagination(props: any) {
-
+// Componente paginação
+function SearchPagination(props: ISearchPaginationViewInterface) {
     const { itensPerPage, onChange, totalItens, currentPage } = props
-    const { search } = useContext(GlobalContext);
-
+    const { searchText } = useContext(GlobalContext);
+    
     return (
         <SearchPaginationView
-            titleValue={search}
+            titleValue={searchText}
             itensPerPage={itensPerPage}
             onChange={onChange}
             totalItens={totalItens}

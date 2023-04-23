@@ -3,8 +3,7 @@ import HomeView from './Home.view';
 function Home() {
 
     return (
-        <HomeView
-        />
+        <HomeView />
     )
 }
 

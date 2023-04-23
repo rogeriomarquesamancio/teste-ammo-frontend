@@ -1,22 +1,31 @@
-import { SelectStyled, Container } from "./SelectItensPerPage.style";
+import enumProductsPerPage from "../../enum/enumProductsPage";
+import { ISelectItensPerPageViewInterface } from "./SelectItensPerPage.interface";
+import SelectItensPerPageView from "./SelectItensPerPage.view";
 
-function SelectItensPerPage(props: any) {
-
+// Input para selecionar itens por páginas
+function SelectItensPerPage(props: ISelectItensPerPageViewInterface) {
     const { onChange, itensPerPage } = props
+    const enumlist = [
+        {
+            value: enumProductsPerPage.EIGHT_PER_PAGE,
+            label: '8 produtos por página'
+        },
+        {
+            value: enumProductsPerPage.SIXTEEN_PER_PAGE,
+            label: '16 produtos por página'
+        },
+        {
+            value: enumProductsPerPage.SIXTY_FOUR_PER_PAGE,
+            label: '32 produtos por página'
+        }
+    ]
+
     return (
-        <Container lg={12} xs={24} sm={12}>
-            <SelectStyled
-                style={{ width: '220px' }}
-                onChange={onChange}
-                value={itensPerPage}
-                options={[
-                    { value: 8, label: '8 produtos por página' },
-                    { value: 16, label: '16 produtos por página' },
-                    { value: 32, label: '32 produtos por página' },
-                    { value: 64, label: '64 produtos por página' },
-                ]}
-            />
-        </Container>
+        <SelectItensPerPageView
+            onChange={onChange}
+            itensPerPage={itensPerPage}
+            optionsList={enumlist}
+        />
     )
 }
 

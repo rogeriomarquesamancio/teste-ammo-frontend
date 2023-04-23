@@ -2,29 +2,11 @@ import SearchPagination from './SearchPagination'
 
 describe('<SearchPagination />', () => {
 	it('renders', () => {
-		// see: https://on.cypress.io/mounting-react
-		/*  cy.stub(useContext,'search').withArgs(GlobalContext).returns({
-	 
-		 }) */
 		cy.mount(<SearchPagination
-			titleValue={'Teste'}
-			itensPerPage={1}
-			onChange={() => console.log("change")}
-			totalItens={1}
+			itensPerPage={10}
+			onChange={() => console.log('Change Pagination')}
+			totalItens={200}
 			currentPage={1}
-		/>)
-	})
-	it('null', () => {
-		// see: https://on.cypress.io/mounting-react
-		/*  cy.stub(useContext,'search').withArgs(GlobalContext).returns({
-	 
-		 }) */
-		cy.mount(<SearchPagination
-			titleValue={null}
-			itensPerPage={null}
-			onChange={null}
-			totalItens={null}
-			currentPage={null}
 		/>)
 	})
 })
